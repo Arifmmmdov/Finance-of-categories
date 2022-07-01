@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:padding="10dp"
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/showDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show dialog"
-        android:id="@+id/showDialog"/>
+        android:backgroundTint="@color/black"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
