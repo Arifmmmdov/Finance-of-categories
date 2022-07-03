@@ -165,7 +165,7 @@ class MainActivity : AppCompatActivity() {
     private fun Spinner.onItemSelectedListener(mainActivity: MainActivity) {
         this.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                val dec = DecimalFormat("###.###.###")
+                val dec = DecimalFormat("###,###,###")
                 binding.expencesValue.text = dec.format(Random.nextInt(1000000,1500000)).toString()
                 binding.incomingsValue.text = dec.format(Random.nextInt(1500000,2000000)).toString()
                 binding.cashbackValue.text = dec.format(Random.nextInt(100000,100500)).toString()
