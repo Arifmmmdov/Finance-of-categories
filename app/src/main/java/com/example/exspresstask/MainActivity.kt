@@ -3,9 +3,11 @@ package com.example.exspresstask
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.exspresstask.adapter.MainFrameAdapter
 import com.example.exspresstask.databinding.ActivityMainBinding
 import com.example.exspresstask.dialog.BottomNavDialog
 import com.example.exspresstask.helper.CommonHelper
+import com.example.exspresstask.repository.MainDataRepository
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
@@ -31,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         setListeners()
         setupPieCharts()
         setPieChartData()
+        showRecyclerAdapters();
+    }
+
+    private fun showRecyclerAdapters() {
+        R.drawable.ellipse_icon
+//        val adapter = MainFrameAdapter(,MainDataRepository.getCatTexts())
     }
 
     private fun setPieChartData() {

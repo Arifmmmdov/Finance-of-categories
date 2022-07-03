@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cat_icon"
+        android:background="@drawable/ellipse_icon"
+        android:paddingVertical="12dp"/>
+
+    <TextView
+        android:id="@+id/cat_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/cat_icon"
+        android:layout_marginStart="17dp"
+        android:text="@string/category_text"
+        android:textColor="#000000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/AZN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="@string/azn_month"
+        android:textColor="#5F6369" />
+
+    <View
+        android:id="@+id/dot"
+        android:layout_width="3dp"
+        android:layout_height="3dp"
+        android:background="@drawable/dot_color"
+        android:layout_toStartOf="@id/AZN"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/percentage"
+        android:id="@+id/percentage"
+        android:layout_toStartOf="@id/dot"
+        android:layout_marginEnd="8dp"
+        android:layout_centerVertical="true"
+        android:textColor="#5F6369"/>
+
+</RelativeLayout>

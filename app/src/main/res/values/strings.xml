@@ -3,4 +3,7 @@
     <string name="incomings">Incomings</string>
     <string name="cashback">Cashback</string>
     <string name="expences">Expences</string>
+    <string name="category_text">Category text</string>
+    <string name="azn_month">Azn/month</string>
+    <string name="percentage">Percentage</string>
 </resources>
