@@ -26,7 +26,7 @@ open class MainDataRepository {
             return catTexts
         }
 
-        fun getIcons(context: Context):ArrayList<Int>{
+        fun getIcons():ArrayList<Int>{
             val icons = ArrayList<Int>()
             icons.add( R.drawable.airlines)
             icons.add(R.drawable.ic_rent_a_car)

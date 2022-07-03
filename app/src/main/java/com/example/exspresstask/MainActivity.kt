@@ -2,15 +2,16 @@ package com.example.exspresstask
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.setPadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exspresstask.adapter.MainFrameAdapter
+import com.example.exspresstask.adapter.spinner_adapter.CardSpinnerAdapter
 import com.example.exspresstask.databinding.ActivityMainBinding
 import com.example.exspresstask.dialog.BottomNavDialog
 import com.example.exspresstask.event.OnItemClickedEvent
+import com.example.exspresstask.repository.CardSpinnerRepository
 import com.example.exspresstask.repository.MainDataRepository
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.data.PieData
@@ -43,20 +44,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        configureView()
 
+        setViews()
         setupPieCharts()
-        showRecyclerAdapters()
     }
 
-    private fun configureView() {
-        binding.scrollSection.setPadding(0, binding.linearSpinners.height,0,0 )
-
+    private fun setViews() {
+        setSpinners()
+        showRecyclerView()
     }
 
-    private fun showRecyclerAdapters() {
+    private fun setSpinners() {
+        binding.creditCard.adapter = CardSpinnerAdapter(this,CardSpinnerRepository.getCardIcons(),CardSpinnerRepository.getCardNames(),CardSpinnerRepository.getCardNos())
+        binding.month.adapter = ArrayAdapter.createFromResource(this,R.array.month,android.R.layout.simple_list_item_1)
+        binding.year.adapter = ArrayAdapter.createFromResource(this,R.array.year,android.R.layout.simple_list_item_1)
+    }
+
+
+    private fun showRecyclerView() {
         R.drawable.airlines
-        val adapter = MainFrameAdapter(MainDataRepository.getIcons(this),MainDataRepository.getCatTexts(),MainDataRepository.getProfits())
+        val adapter = MainFrameAdapter(MainDataRepository.getIcons(),MainDataRepository.getCatTexts(),MainDataRepository.getProfits())
         binding.mainRecyc.adapter = adapter
         binding.mainRecyc.layoutManager = LinearLayoutManager(this)
     }
@@ -102,14 +109,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupPieCharts() {
         binding.pieChart.isDrawHoleEnabled = true
-        binding.pieChart.setDrawCenterText(true)
+        binding.pieChart.setDrawCenterText(false)
         binding.pieChart.holeRadius = 80f
         binding.pieChart.setUsePercentValues(false)
         binding.pieChart.setEntryLabelTextSize(5f)
         binding.pieChart.setEntryLabelColor(Color.BLACK)
-        binding.pieChart.setCenterTextSize(2f)
+        binding.pieChart.setCenterTextSize(25f)
+        binding.pieChart.setDrawEntryLabels(false)
         binding.pieChart.description.isEnabled = false
         binding.pieChart.legend.isEnabled = false
+//        binding.pieChart.centerText = "MyMainText"
+
 
         setPieChartData()
 
@@ -117,7 +127,7 @@ class MainActivity : AppCompatActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
     fun onItemClicked(onItemClicked: OnItemClickedEvent){
-        val bottomNavDialog = BottomNavDialog(onItemClicked.profit,onItemClicked.percentage,onItemClicked.icon,onItemClicked.category,binding.month.toString(),binding.year.toString())
+        val bottomNavDialog = BottomNavDialog(onItemClicked.profit,onItemClicked.percentage,onItemClicked.icon,onItemClicked.category,binding.month.selectedItem.toString(),binding.year.selectedItem.toString())
         bottomNavDialog.show(supportFragmentManager,"bottomNavigationDialog")
     }
 
