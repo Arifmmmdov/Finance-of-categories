@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.setPadding
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exspresstask.adapter.MainFrameAdapter
 import com.example.exspresstask.databinding.ActivityMainBinding
@@ -42,10 +43,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        setListeners()
+        configureView()
+
         setupPieCharts()
-        setPieChartData()
-        showRecyclerAdapters();
+        showRecyclerAdapters()
+    }
+
+    private fun configureView() {
+        binding.scrollSection.setPadding(0, binding.linearSpinners.height,0,0 )
+
     }
 
     private fun showRecyclerAdapters() {
@@ -105,9 +111,7 @@ class MainActivity : AppCompatActivity() {
         binding.pieChart.description.isEnabled = false
         binding.pieChart.legend.isEnabled = false
 
-    }
-
-    private fun setListeners() {
+        setPieChartData()
 
     }
 
