@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">ExspressTask</string>
-    <string name="incomings">Incomings</string>
-    <string name="cashback">Cashback</string>
-    <string name="expences">Expences</string>
-    <string name="category_text">Category text</string>
-    <string name="azn_month">Azn/month</string>
-    <string name="percentage">Percentage</string>
+    <string name="app_name"><u>ExspressTask</u></string>
+    <string name="incomings"><u>Incomings</u></string>
+    <string name="cashback"><u>Cashback</u></string>
+    <string name="expences"><u>Expences</u></string>
+    <string name="category_text"><u>Category text</u></string>
+    <string name="azn_month"><u>Azn/month</u></string>
+    <string name="percentage"><u>Percentage</u></string>
+    <string name="view_statement"><u>View statement</u></string>
 </resources>

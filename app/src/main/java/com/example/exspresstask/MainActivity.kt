@@ -2,31 +2,43 @@ package com.example.exspresstask
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.exspresstask.adapter.MainFrameAdapter
 import com.example.exspresstask.databinding.ActivityMainBinding
 import com.example.exspresstask.dialog.BottomNavDialog
-import com.example.exspresstask.helper.CommonHelper
+import com.example.exspresstask.event.OnItemClickedEvent
 import com.example.exspresstask.repository.MainDataRepository
 import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var bottomNavDialog: BottomNavDialog
     lateinit var binding: ActivityMainBinding
     val TAG="MyTagHere"
 
 
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bottomNavDialog = BottomNavDialog()
         binding = ActivityMainBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -37,8 +49,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showRecyclerAdapters() {
-        R.drawable.ellipse_icon
-//        val adapter = MainFrameAdapter(,MainDataRepository.getCatTexts())
+        R.drawable.airlines
+        val adapter = MainFrameAdapter(MainDataRepository.getIcons(this),MainDataRepository.getCatTexts(),MainDataRepository.getProfits())
+        binding.mainRecyc.adapter = adapter
+        binding.mainRecyc.layoutManager = LinearLayoutManager(this)
     }
 
     private fun setPieChartData() {
@@ -71,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         data.setValueTextColor(Color.BLACK)
 
         binding.pieChart.data = data
+        binding.pieChart.addView(LayoutInflater.from(this).inflate(R.layout.inside_piechart,null))
         binding.pieChart.invalidate()
 
         binding.pieChart.animateY(1400, Easing.EaseInOutQuad)
@@ -80,28 +95,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupPieCharts() {
-        binding.pieChart.isDrawHoleEnabled = true;
+        binding.pieChart.isDrawHoleEnabled = true
         binding.pieChart.setDrawCenterText(true)
         binding.pieChart.holeRadius = 80f
-        binding.pieChart.setUsePercentValues(false);
-        binding.pieChart.setEntryLabelTextSize(5f);
-        binding.pieChart.setEntryLabelColor(Color.BLACK);
-        binding.pieChart.centerText = "Spending by Category";
-        binding.pieChart.setCenterTextSize(2f);
-        binding.pieChart.description.isEnabled = false;
+        binding.pieChart.setUsePercentValues(false)
+        binding.pieChart.setEntryLabelTextSize(5f)
+        binding.pieChart.setEntryLabelColor(Color.BLACK)
+        binding.pieChart.setCenterTextSize(2f)
+        binding.pieChart.description.isEnabled = false
         binding.pieChart.legend.isEnabled = false
 
-
-//        val l: Legend = binding.pieChart.legend
-//        l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
-//        l.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
-//        l.orientation = Legend.LegendOrientation.HORIZONTAL
-//        l.setDrawInside(true)
-//        l.isEnabled = false
     }
 
     private fun setListeners() {
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    fun onItemClicked(onItemClicked: OnItemClickedEvent){
+        val bottomNavDialog = BottomNavDialog(onItemClicked.profit,onItemClicked.percentage,onItemClicked.icon,onItemClicked.category,binding.month.toString(),binding.year.toString())
+        bottomNavDialog.show(supportFragmentManager,"bottomNavigationDialog")
     }
 
 }

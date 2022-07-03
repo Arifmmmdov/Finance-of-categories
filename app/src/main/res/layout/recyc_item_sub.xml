@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subIcon"
+        android:layout_marginVertical="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_transport"/>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/subIcon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/subCenterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uber trip 20 UAW"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13:02  17.09.2018"
+            android:textColor="#70777E"
+            android:textSize="13dp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100 ₼"
+        android:textColor="#231F20"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/subIcon"/>
+</RelativeLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:orientation="vertical"
     android:background="#E3E0E0"
     android:gravity="center_horizontal"
@@ -34,17 +35,18 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="16dp"
         android:layout_below="@id/toolBar">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
             app:divider="@drawable/empty_divider"
             app:showDividers="middle">
 
             <Spinner
+                android:id="@+id/creditCard"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/rounded_background" />
@@ -55,6 +57,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
+                    android:id="@+id/year"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginRight="15dp"
@@ -65,6 +68,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_weight="1"
+                    android:id="@+id/month"
                     android:background="@drawable/rounded_background" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -171,19 +175,55 @@
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pie_chart"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp" />
+                        android:layout_height="300dp"
+                        android:layout_gravity="center">
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transport 26%"
+                                android:textColor="#231F20"
+                                android:textSize="18sp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1 500"
+                                android:textColor="#231F20"
+                                android:textSize="48sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="AZN / month"
+                                android:textSize="16sp"
+                                android:textColor="#231F20"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/view_statement"
+                                android:textColor="#231F20"
+                                android:textSize="16sp"/>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </com.github.mikephil.charting.charts.PieChart>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Categories"
                         android:textColor="#000000"
-                        android:textSize="16dp"/>
+                        android:textSize="16dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/mainRecyc"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/mainRecyc"/>
+                        android:layout_height="match_parent" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.cardview.widget.CardView>

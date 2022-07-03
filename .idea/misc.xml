@@ -3,15 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/ellipse_icon.xml" value="0.146" />
         <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/empty_divider.xml" value="0.1" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/ic_business_services.xml" value="0.146" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/ic_sub_transport.xml" value="0.146" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/ic_transport.xml" value="0.146" />
         <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/drawable/rounded_background.xml" value="0.1" />
         <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/inside_piechart.xml" value="0.4" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/recyc_item_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/recyc_item_sub.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/sub_dialog.xml" value="0.264" />
         <entry key="..\:/Users/Arif/Finance-of-categories/app/src/main/res/layout/transport_dialog.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/MSI/Finance-of-categories/app/src/main/res/drawable/dot_color.xml" value="0.236" />
-        <entry key="..\:/Users/MSI/Finance-of-categories/app/src/main/res/drawable/ellipse_icon.xml" value="0.236" />
-        <entry key="..\:/Users/MSI/Finance-of-categories/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/MSI/Finance-of-categories/app/src/main/res/layout/adapter_main.xml" value="0.24547101449275363" />
-        <entry key="..\:/Users/MSI/Finance-of-categories/app/src/main/res/layout/item_main.xml" value="0.2" />
         <entry key="..\:/Users/arifm/AndroidStudioProjects/ExspressTask/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/arifm/AndroidStudioProjects/ExspressTask/app/src/main/res/layout/transport_dialog.xml" value="0.358695652173913" />
       </map>
