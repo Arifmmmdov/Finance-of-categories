@@ -89,6 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/subFrame_recycler"
+                android:paddingTop="10dp"
                 />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
